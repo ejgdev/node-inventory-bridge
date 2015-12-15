@@ -1,5 +1,6 @@
 var debug = require("debug")("RunIndex")
 var Fulfillment = require("spexpress")
+var moment = require("moment");
 var Stitch = require("stitchlabs")
 var Promise = require("bluebird")
 var _ = require("underscore")
@@ -71,11 +72,13 @@ function runReports(data, variants){
   return writeReport([
     {
       content: errorReport(data),
-      name: "Stitch Quantity Error Report"
+      name: "Stitch Quantity Error Report",
+      type: "csv/text"
     },
     {
       content: _.map(variants, readyReport("quantity update requested")),
-      name: "Stitch Quantity Change Report"
+      name: "Stitch Quantity Change Report",
+      type: "csv/text"
     }
   ])
 }
@@ -114,6 +117,19 @@ function main(){
         })
       })
     })
+    .catch(function(err){
+      writeReport([
+        {
+          content: ["File Not Found On Inventory For Date: ", moment().format("MM/DD/YYYY h:mm:ss a")].join(" "),
+          name: "File Not Found On Inventory Report",
+          type: "txt/text"
+        }
+      ])
+      .then(function(){
+        debug("File not found on inventory shutting down process");
+        process.exit(1);
+      });
+    });
 }
 
 module.exports = main

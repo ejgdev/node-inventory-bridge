@@ -19,11 +19,11 @@ function parseAndUpload(drive, item){
         convert: true,
         resource: {
           title: item.name,
-          mimeType: 'text/csv',
+          mimeType: item.type,
           parents: [{"id":uploadParentFolder}],
         },
         media: {
-          mimeType: 'text/csv',
+          mimeType: item.type,
           body: item.content,
         }
       }).spread(function(data, response){
