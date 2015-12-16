@@ -73,12 +73,12 @@ function runReports(data, variants){
     {
       content: errorReport(data),
       name: "Stitch Quantity Error Report",
-      type: "csv/text"
+      type: "text/csv"
     },
     {
       content: _.map(variants, readyReport("quantity update requested")),
       name: "Stitch Quantity Change Report",
-      type: "csv/text"
+      type: "text/csv"
     }
   ])
 }
@@ -122,7 +122,7 @@ function main(){
         {
           content: ["File Not Found On Inventory For Date: ", moment().format("MM/DD/YYYY h:mm:ss a")].join(" "),
           name: "File Not Found On Inventory Report",
-          type: "txt/text"
+          type: "text/txt"
         }
       ])
       .then(function(){
