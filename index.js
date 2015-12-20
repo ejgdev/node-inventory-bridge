@@ -1,4 +1,3 @@
-require("dotenv").config({path:'..'});
 var debug = require("debug")("Worker")
 var debugCron = require("debug")("Cron")
 var mergeUpdateReport = require("./merge-update-report")
