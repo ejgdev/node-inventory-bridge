@@ -35,6 +35,7 @@
     "passport": "^0.3.2",
     "connect-flash": "^0.1.1",
     "connect-session": "0.0.1",
-    "express-session": "^1.12.1"
+    "express-session": "^1.12.1",
+    "cron": "^1.0.9"
   }
 }
