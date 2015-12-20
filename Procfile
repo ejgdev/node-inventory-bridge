@@ -1,2 +1,2 @@
-web: node google-server.js
-worker: npm start
+web: npm run server
+worker: npm run worker
