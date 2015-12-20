@@ -2,7 +2,6 @@
 /**
  * Module dependencies.
  */
- require('dotenv').load()
 var express = require('express');
 var routes = require('./routes');
 var authRoutes = require('./routes/auth');
@@ -20,7 +19,7 @@ var jackrabbit = require('jackrabbit');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-GLOBAL.rabbit = jackrabbit(process.env.RABBIT_URL || "amqp://guest:guest@localhost:5672");
+GLOBAL.rabbit = jackrabbit(process.env.RABBITMQ_BIGWIG_TX_URL || "amqp://guest:guest@localhost:5672");
 
 var app = express();
 
