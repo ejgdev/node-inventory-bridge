@@ -118,6 +118,7 @@ function main(){
       })
     })
     .catch(function(err){
+      if(err.message !== "No File Found") return;
       writeReport([
         {
           content: ["File Not Found On Inventory For Date: ", moment().format("MM/DD/YYYY h:mm:ss a")].join(" "),
@@ -126,8 +127,7 @@ function main(){
         }
       ])
       .then(function(){
-        debug("File not found on inventory shutting down process");
-        process.exit(1);
+        debug("File not found on inventory");
       });
     });
 }

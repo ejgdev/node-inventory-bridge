@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  div.container 
+    div.panel.panel-default
+      div.panel-body
+        h2 Sync Inventory from SPExpress/MSS to Stitch Labs
+        p Click on the button sync button to add a sync job to the queue, the report will be generated on 15 minutes maximum.
+        a#sync-button.btn.btn-primary Sync Inventory
+  script(src="//code.jquery.com/jquery-1.11.3.min.js")
+  script(src="/javascripts/app.js")
+  
