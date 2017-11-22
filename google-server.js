@@ -1,3 +1,4 @@
+require('dotenv').config()
 var _ = require("underscore")
 var Promise = require("bluebird")
 var express = require('express')

@@ -56,6 +56,7 @@ function readyReport(message){
       var delta = (m - s) / m
       return delta.toFixed(2) + "%"
     }()
+    debug("readyReport with data %s", temp.stitch_id);
     return temp
   }
 }
@@ -69,6 +70,7 @@ function errorReport(data){
 }
 
 function runReports(data, variants){
+  debug("runReports");
   return writeReport([
     {
       content: errorReport(data),

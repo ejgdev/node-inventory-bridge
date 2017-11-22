@@ -45,6 +45,9 @@ function uploadFiles(files){
     })
     return Promise.all(filePromises)
   })
+  .catch(function(error){
+    debug("uploadFiles with error %s", error);
+  })
 }
 
 module.exports = uploadFiles
