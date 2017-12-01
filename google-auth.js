@@ -2,6 +2,7 @@ var path = require("path")
 var Promise = require("bluebird")
 var fs = Promise.promisifyAll(require("fs"))
 var moment = require("moment")
+var debug = require("debug")("GoogleAuth")
 
 var google = require('googleapis')
 var OAuth2 = google.auth.OAuth2
@@ -17,8 +18,14 @@ function getTokens(){
   }).catch(function(e){
     return false
   }).then(function(exists){
-    if(exists) return exists
+
+    if(exists) {
+      debug("Getting Tokens From tokens path")
+      return exists
+    }
+
     if(!process.env.GD_USER_ACCESS_TOKEN) return false
+    debug("Getting Tokens From ENV")
     return {
       access_token: process.env.GD_USER_ACCESS_TOKEN,
       token_type: process.env.GD_USER_TOKEN_TYPE,
@@ -41,7 +48,8 @@ function getOauth2Client(){
     var tokenIsExpired = moment().isAfter(tokenExpireDate)
     if(!tokenIsExpired) return Promise.resolve(oauth2Client)
     return oauth2Client.refreshAccessToken().then(function(tokens){
-      fs.writeFileAsync("./tokens.json", JSON.stringify(tokens, undefined, 2), "utf8");
+      debug("Access Token Refreshed")
+      fs.writeFileAsync("./tokens.json", JSON.stringify(tokens[0], undefined, 2), "utf8");
       return oauth2Client
     })
   })
@@ -49,8 +57,8 @@ function getOauth2Client(){
 
 module.exports = getOauth2Client
 
-/*
-getOauth2Client().then(function(oauth2Client){
+
+/*getOauth2Client().then(function(oauth2Client){
   console.log(oauth2Client)
 })
 */
