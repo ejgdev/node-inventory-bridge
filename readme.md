@@ -2,7 +2,7 @@
 
 > Cron + [Marketing Support Solutions (MSS)](http://www.mssworks.com/order-fulfillment/) / [SPExpress (SPE)](http://www.spexpress.com/) + [Stitch Labs](http://www.stitchlabs.com/)  + Google Drive
 
-This is a piece of software I made to automate some of the more manual tasks that take place behind the scenes at the Holstee office.
+This is a piece of software that made the github user [Reggi](https://github.com/reggi) to automate some of the more manual tasks that take place behind the scenes at the Holstee office.
 
 At Holstee we use Stitch Labs for inventory management, we use it as our middleman between our fulfillment center(s) and Shopify. One of our fulfillment centers MSS (recently acquired by SPE) doesn't talk to Stitch, so I built this software to bridge the gap. This is a script that runs on a daily basis. The script retrieves the daily `stock`, `quantity` or `inventory` numbers data from the SPE FTP server and pulling data from Stitch matching variants via SKU and updates the stock or quantity in Stitch with the updated one from MSS.  
 
@@ -13,7 +13,11 @@ There are two modules created specifically for this project. One is the for the 
 * [node-spexpress](https://github.com/reggi/node-spexpress)
 * [node-stitchlabs](https://github.com/reggi/node-stitchlabs)
 
-`npm i spexpress stitchlabs --save`
+### Notes
+
+The Module Package SPExpress was changed to local module.
+
+`npm i stitchlabs --save`
 
 ## The process
 

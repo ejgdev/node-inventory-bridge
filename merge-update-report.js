@@ -1,5 +1,5 @@
 var debug = require("debug")("RunIndex")
-var Fulfillment = require("spexpress")
+var Fulfillment = require("./modules/spexpress")
 var moment = require("moment");
 var Stitch = require("stitchlabs")
 var Promise = require("bluebird")
