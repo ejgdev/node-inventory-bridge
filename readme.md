@@ -15,7 +15,7 @@ There are two modules created specifically for this project. One is the for the 
 
 ### Notes
 
-The Module Package SPExpress was changed to local module.
+The Module Package SPExpress was changed to local module. The npm version need upgrade.
 
 `npm i stitchlabs --save`
 
