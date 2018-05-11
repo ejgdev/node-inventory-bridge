@@ -3,6 +3,7 @@ var Promise = require("bluebird")
 var _ = require("underscore")
 
 function main(stitch, fulfillment){
+  debug("making conections")
   return Promise.props({
     "FulfillmentInventory": fulfillment.inventory(),
     "Products": stitch.requestAll("api2/v2/Products"),

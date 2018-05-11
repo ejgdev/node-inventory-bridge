@@ -104,6 +104,7 @@ var fakeProduct = [
 ]
 
 function main(){
+  debug("starting")
   return mergedVariants(stitch, fulfillment)
     .then(function(data){
       return updateStock(stitch, {
