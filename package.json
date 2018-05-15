@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "DEBUG=* node ./server/app.js",
+    "google-server": "DEBUG=* node goole-server.js",
     "worker": "DEBUG=* node index.js",
     "dev-solo": "DEBUG=* foreman run node without-cron.js",
     "dev": "DEBUG=* foreman run node index.js"
