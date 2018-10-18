@@ -3,7 +3,7 @@ var debugCron = require("debug")("Cron")
 var mergeUpdateReport = require("./merge-update-report")
 var CronJob = require('cron').CronJob;
 var jackrabbit = require('jackrabbit');
-var rabbit = jackrabbit(process.env.RABBITMQ_BIGWIG_RX_URL || "amqp://guest:guest@localhost:5672");
+var rabbit = jackrabbit(process.env.CLOUDAMQP_URL || "amqp://guest:guest@localhost:5672");
 
 debug("starting index.js / cron process")
 
