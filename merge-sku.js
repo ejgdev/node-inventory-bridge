@@ -10,7 +10,7 @@ function main(stitch, fulfillment){
     "AccountAddresses": stitch.requestAll("api2/v2/AccountAddresses"),
   })
     .then(function(data){
-      data.mss = _.findWhere(data.AccountAddresses.AccountAddresses, {"company": "MSS Fulfillment"})
+      data.mss = _.findWhere(data.AccountAddresses.AccountAddresses, {"company": "Source4  (Formerly Marketing Support Solutions, Inc.)"})
       data.stitchVariantsMissingSku = _.chain(data.Products.Variants)
         .filter(function(variant){
           if(variant.sku == "null") return true

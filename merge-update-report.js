@@ -119,6 +119,11 @@ function main(){
           })
         })
       })
+      .catch(function(err){
+          debug("error on updateStock");
+          debug(err);
+          debug("review the info ----------------");
+      });
     })
     .catch(function(err){
       if(err.message !== "No File Found") return;
