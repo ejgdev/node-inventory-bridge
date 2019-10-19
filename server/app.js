@@ -18,6 +18,7 @@ var debugAuth = require('debug')("auth");
 var jackrabbit = require('jackrabbit');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var pug = require('pug');
 
 global.rabbit = jackrabbit(process.env.CLOUDAMQP_URL || "amqp://guest:guest@localhost:5672");
 
@@ -47,7 +48,7 @@ var isAuthenticated = function (req, res, next) {
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 app.use(bodyParser.json({}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
