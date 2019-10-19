@@ -7,3 +7,4 @@ tokens.json
 google-keys.json
 .env
 .tokens
+.DS_Store
